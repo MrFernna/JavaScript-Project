@@ -16,10 +16,11 @@ body{
     text-align: center;
     box-shadow: 0 8px 8px 0 rgba(0,0,0,0.1);
 }
-.input-container{
+.tools-container{
     display:flex;
     align-items: center;
     padding:20px;
+    justify-content: center;
 }
 input{
     height:50px;
@@ -30,5 +31,11 @@ button{
     padding:12px;
 }
 .canvas{
-    border: 1px rgba(75, 10, 10, 0.2);
+    border: 1px solid rgba(5, 4, 4, 0.2);
+    padding: 120px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    margin-top: 20px;
+    background-color: #ffff;
+    cursor:crosshair;
 }
