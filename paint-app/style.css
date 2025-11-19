@@ -8,6 +8,9 @@ body{
     height:100vh;
     background-color: #f0f0f0;
 }
+h1{
+    color:rgb(43, 40, 40);
+}
 .paint-container{
     background-color: #72e6b0;
     max-width:600px;
