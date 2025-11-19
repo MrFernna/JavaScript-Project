@@ -21,9 +21,12 @@ body{
     align-items: center;
     padding:20px;
     justify-content: center;
+    gap:10px;
 }
 input{
-    height:50px;
+    height:45px;
+    width:100px;
+    color:#000000;
 }
 button{
     width:120px;
