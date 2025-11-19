@@ -4,5 +4,7 @@ const eraser = document.getElementById('eraser')
 const canvas = document.querySelector('.canvas')
 
 let selectedColor = 0;
-
+function brush(){
+    
+}
 
