@@ -26,15 +26,23 @@ h1{
     justify-content: center;
     gap:10px;
 }
+.tools-container button{
+    border:none;
+    border-radius: 12px;
+}
 input{
     height:45px;
     width:100px;
     color:#000000;
+    border:none;
 }
 button{
     width:120px;
     font-size: 1em;
     padding:12px;
+}
+p{
+    font-size: 1.5em;
 }
 .canvas{
     border: 1px solid rgba(5, 4, 4, 0.2);
