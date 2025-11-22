@@ -13,7 +13,7 @@ h1{
 }
 .paint-container{
     background-color: #72e6b0;
-    max-width:600px;
+    max-width:1000px;
     width:100%;
     border-radius: 12px;
     text-align: center;
@@ -29,6 +29,9 @@ h1{
 .tools-container button{
     border:none;
     border-radius: 12px;
+    width:120px;
+    font-size: 1em;
+    padding:12px;
 }
 input{
     height:45px;
@@ -36,13 +39,11 @@ input{
     color:#000000;
     border:none;
 }
-button{
-    width:120px;
-    font-size: 1em;
-    padding:12px;
-}
 p{
     font-size: 1.5em;
+}
+.tools.active{
+    background-color: #cccccc;
 }
 .canvas{
     border: 1px solid rgba(5, 4, 4, 0.2);
