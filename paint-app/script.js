@@ -32,7 +32,6 @@ function draw(){
     ctx.lineCap = 'round'
     ctx.strokeStyle = erasing ? '#eeeeee':colorDefault
 
-    ctx.lineTo(clientX - )
 }
 
 function selectBrush(e){
