@@ -1,34 +1,34 @@
-const brushBtn = document.getElementById('brush')
-const colorInput = document.getElementById('colorInput')
+const brushBtn =  document.getElementById('brush')
 const eraserBtn = document.getElementById('eraser')
-const canvas = document.querySelector('.canvas')
+const inputColor = document.getElementById('color')
 const clearBtn = document.getElementById('clear')
-const textColor = document.getElementById('color')
+const colorText = document.getElementById('textColor')
 
-const ctx =  canvas.getContext('2d')
-
+const canvas = document.querySelector('.canvas')
+const ctx = canvas.getContext('2d')
 let selectedColor;
 
-canvas.width = 700
-canvas.height = 400
+const lineWidth = 5
+
+canvas.width = 800
+canvas.height = 500
+defaultColor = "#000000"
 
 let painting = false
 let erasing = false
-let lineWidth = 5
-let colorDefault = "#000000"
 
-function startPosition(e){
-    painting = true;
+function startPoint(e){
+    painting = true
     draw(e)
 }
 
-function endPosition(e){
+function endPoint(){
     painting = false
     ctx.beginPath()
 }
 
 function draw(e){
-    if(!painting) return 
+    if(!painting) return
 
     ctx.lineWidth = lineWidth
     ctx.lineCap = 'round'
@@ -38,33 +38,38 @@ function draw(e){
     ctx.stroke()
     ctx.beginPath()
     ctx.moveTo(e.clientX - canvas.offsetLeft, e.clientY - canvas.offsetTop)
+    
 }
-
-function selectBrush(e){
-    erasing = false;
-    brushBtn.classList.add('active')
-    eraserBtn.classList.remove('active')
-}
-function selectEraser(e){
-    erasing = true
-    eraserBtn.classList.add('active')
-    brushBtn.classList.remove('active')
+function clear(){
+    ctx.clearRect(0,0,canvas.width,canvas.height)
 }
 
 function selectColor(e){
-    selectedColor = e.target.value;
-    textColor.style.color = selectedColor;
-    textColor.textContent = selectedColor;
-}
-function clear(){
-    ctx.clearRect(0,0, canvas.width, canvas.height)
+    selectedColor = e.target.value
+    colorText.style.color = selectedColor
+    colorText.textContent = selectedColor
 }
 
-canvas.addEventListener('mousedown',startPosition)
-canvas.addEventListener('mouseup',endPosition)
-canvas.addEventListener('mouseout',endPosition)
+function selectBrush(){
+    erasing = false
+    painting = true
+    brushBtn.classList.add('active')
+    eraserBtn.classList.remove('active')
+}
+function selectEraser(){
+    painting = false
+    erasing = true
+    brushBtn.classList.remove('active')
+    eraserBtn.classList.add('active')
+}
+
+canvas.addEventListener('mousedown',startPoint)
+canvas.addEventListener('mouseup',endPoint)
+canvas.addEventListener('mouseout',endPoint)
 canvas.addEventListener('mousemove',draw)
-colorInput.addEventListener('input',selectColor)
+
+
+inputColor.addEventListener("input",selectColor)
 brushBtn.addEventListener('click',selectBrush)
 eraserBtn.addEventListener('click',selectEraser)
 clearBtn.addEventListener('click',clear)

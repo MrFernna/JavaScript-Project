@@ -32,6 +32,7 @@ h1{
     width:120px;
     font-size: 1em;
     padding:12px;
+    cursor:pointer;
 }
 input{
     height:45px;
@@ -43,6 +44,9 @@ p{
     font-size: 1.5em;
 }
 .tools.active{
+    background-color: #cccccc;
+}
+#clear:active{
     background-color: #cccccc;
 }
 .canvas{
