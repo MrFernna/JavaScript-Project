@@ -1,13 +1,13 @@
 const qna = [{
     question:"In the context of web development, which of the following components is NOT typically part of the Front-end (Client-Side)?",
-answer:[
+answers:[
 {text:"React Component Lifecycle",correct:false},
 {text:"CSS Grid and Flexbox Layouts",correct:false},
 {text:"The Logic for JWT (JSON Web Token) Verification and Issuance",correct:true},
 {text:"DOM (Document Object Model) Manipulation",correct:false}]
 },{
     question:"What is the primary function of a RESTful API in a Full-stack application architecture?",
-    answer:[
+    answers:[
         {text:"To transpile JavaScript code into Native mobile device code.",correct:false},
         {text:"To store user session data directly in the browser's Local Storage.",correct:false},
         {text:"To provide the visual interface that users see in their browsers.",correct:false},
@@ -15,7 +15,7 @@ answer:[
     ]
 },{
     question:"In Node.js, what is the role of middleware within the Express.js framework?",
-    answer:[
+    answers:[
         {text:"To determine the TCP/IP port where the server should listen for requests.",correct:false},
         {text:"To print errors to the server console.",correct:false},
         {text:"To automatically convert relational database data into JSON format.",correct:false},
@@ -23,7 +23,7 @@ answer:[
     ]
 },{
     question:"If you are building an e-commerce application that requires high data integrity (e.g., tracking inventory, orders, and financial transactions), which type of Database is most recommended?",
-    answer:[
+    answers:[
         {text:"Cache Database (e.g., Redis)",correct:false},
         {text:"NoSQL (e.g., MongoDB)",correct:false},
         {text:"SQL (e.g., PostgreSQL or MySQL)",correct:true},
@@ -31,26 +31,42 @@ answer:[
     ]
 },{
     question:"What is the primary function of Docker in a Full-stack Developer's deployment process?",
-    answer:[
+    answers:[
         {text:"To manage the global state of the Front-end application.",correct:false},
         {text:"To automatically write Back-end code.",correct:false},
         {text:"As an alternative Front-end framework to React.",correct:false},
         {text:"To isolate the application and all its dependencies into a container to ensure it runs consistently everywhere.",correct:true},
     ]
 }]
+let score;
+let currentQuestionIndex;
+let progress;
+
 const question = document.getElementById('question')
-const answerButton1 = document.getElementById("answer1")
-const answerButton2 = document.getElementById("answer2")
-const answerButton3 = document.getElementById("answer3")
-const answerButton4 = document.getElementById("answer4")
+const nextBtn = document.querySelector('.next-button')
+const prevBtn = document.querySelector('.prev-button')
+const completeBtn = document.querySelector('.complete-button')
+const startBtn = document.getElementById('startButton')
+const page = document.getElementById('progress')
 
-question.textContent = question(qna.value)
-
-answerButton1.textContent = qna(answer1.value)
-answerButton2.textContent = qna(answer2.value)
-answerButton3.textContent = answer.length
-answerButton4.textContent = answer4.length
-
-function solveQuiz(){
-    let randomQna = Math.floor(Math.random(qna.value))
+function startQuiz(){
+    startBtn.style.display = "none"
+    nextBtn.style.display = "block"
+    prevBtn.style.display = "block"
+    page.style.display = "block"
+    showQuestion()
 }
+
+function showQuestion(){
+    resetState()
+    const currentQuestion = qna[currentQuestionIndex]
+    const answerButton = document.createElement('button')
+    currentQuestion.answers.forEach(answer =>{
+        answerButton.textContent = answer.text
+        answerButton.classList.add('answer-button')
+        if(answer.correct){
+            answer.dataset.correct = 
+        }
+    })
+}
+startBtn.addEventListener('click',startQuiz)

@@ -9,16 +9,20 @@
 <body>
     <div class="quiz-container">
         <h1>Quiz App</h1>
+        <p id="progress" style="display:none">Progress: 0/5</p>
         <div class="question-container">
-            <p id="question">Question</p>
+            <p id="question">...</p>
         </div>
-        <div class="answer-container">
-            <button id="answer1">A.</button>
-            <button id="answer2">B.</button>
-            <button id="answer3">C.</button>
-            <button id="answer4">D.</button>
+        <div class="answer-container" style="display:none">
         </div>
-        <button class="start-quiz">Start Quiz</button>
+        <div class="nextPrev-container">
+            <button class="prev-button" style="display:none">Prev</button>
+            <button class="next-button" style="display:none">Next</button>
+        </div>
+        <button class="start-quiz" id="startButton" style="display:block">Start Quiz</button>
+        <div class="complete-container">
+        <button class="complete-button" style="display: none;">Complete</button>
+        </div>
     </div>
 </body>
 <script src="script.js"></script>
