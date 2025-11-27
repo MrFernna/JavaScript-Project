@@ -40,16 +40,18 @@ answers:[
 }]
 let score;
 let currentQuestionIndex;
-let progress;
 
-const question = document.getElementById('question')
+const questionText = document.getElementById('question')
 const nextBtn = document.querySelector('.next-button')
 const prevBtn = document.querySelector('.prev-button')
 const completeBtn = document.querySelector('.complete-button')
 const startBtn = document.getElementById('startButton')
 const page = document.getElementById('progress')
+const answerButtons = document.querySelector('.answer-container')
 
 function startQuiz(){
+    score = 0;
+    currentQuestionIndex = 0;
     startBtn.style.display = "none"
     nextBtn.style.display = "block"
     prevBtn.style.display = "block"
@@ -60,13 +62,54 @@ function startQuiz(){
 function showQuestion(){
     resetState()
     const currentQuestion = qna[currentQuestionIndex]
-    const answerButton = document.createElement('button')
+    questionText.textContent = currentQuestion.question 
     currentQuestion.answers.forEach(answer =>{
-        answerButton.textContent = answer.text
-        answerButton.classList.add('answer-button')
+        const button = document.createElement('button')
+        page.textContent = `Progress: ${currentQuestionIndex}/5`;
+        button.textContent = answer.text
+        button.classList.add('answer-button')
         if(answer.correct){
-            answer.dataset.correct = 
+            button.dataset.correct = answer.correct
+        }
+        answerButtons.appendChild(button)
+        button.addEventListener('click',selectAnswer)
+    })
+}
+function resetState(){
+    while(answerButtons.firstChild){
+        answerButtons.removeChild(answerButtons.firstChild)
+    }
+}
+function selectAnswer(e){
+    const selectedButton = e.target
+    const correct = selectedButton.dataset.correct === 'true'
+    if(correct){
+        selectedButton.style.backgroundColor = "#47cc4eff"
+        score++
+    }else{
+        selectedButton.style.backgroundColor = "#f00000"
+    }
+    Array.from(answerButtons.children).forEach(button =>{
+        button.disabled = true;
+        if(button.dataset.correct){
+            button.style.backgroundColor = '#47cc4eff'
+            progress
         }
     })
 }
-startBtn.addEventListener('click',startQuiz)
+startQuiz()
+function nextButton(){
+    currentQuestionIndex++
+    showQuestion()
+}
+function showResult(){
+    if(currentQuestionIndex < 4){
+        questionText.textContent = `Your Score: ${score}/5`
+    }
+}
+function prevButton(){
+    currentQuestionIndex--;
+}
+// startBtn.addEventListener('click',startQuiz)
+nextBtn.addEventListener('click',nextButton)
+prevBtn.addEventListener('click',prevButton)
