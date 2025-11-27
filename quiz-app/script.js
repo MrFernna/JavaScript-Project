@@ -48,14 +48,15 @@ const completeBtn = document.querySelector('.complete-button')
 const startBtn = document.getElementById('startButton')
 const page = document.getElementById('progress')
 const answerButtons = document.querySelector('.answer-container')
+const returnBtn = document.querySelector('.return-button')
 
 function startQuiz(){
     score = 0;
-    currentQuestionIndex = 0;
     startBtn.style.display = "none"
     nextBtn.style.display = "block"
     prevBtn.style.display = "block"
     page.style.display = "block"
+    returnBtn.style.display = 'none'
     showQuestion()
 }
 
@@ -65,7 +66,7 @@ function showQuestion(){
     questionText.textContent = currentQuestion.question 
     currentQuestion.answers.forEach(answer =>{
         const button = document.createElement('button')
-        page.textContent = `Progress: ${currentQuestionIndex}/5`;
+        page.textContent = `Progress: ${currentQuestionIndex}/4`;
         button.textContent = answer.text
         button.classList.add('answer-button')
         if(answer.correct){
@@ -98,18 +99,36 @@ function selectAnswer(e){
     })
 }
 startQuiz()
+
 function nextButton(){
-    currentQuestionIndex++
+    if(currentQuestionIndex == 4){
+        nextBtn.disabled = true
+        completeBtn.style.display = 'block'
+    }else{
+        currentQuestionIndex++
+    showQuestion()
+    }
+}
+function returnButton(){
+    startQuiz()
+    resetState()
     showQuestion()
 }
+function completeButton(){
+    showResult()
+    returnBtn.style.display = 'block'
+    completeBtn.style.display = 'none'
+}
 function showResult(){
-    if(currentQuestionIndex < 4){
-        questionText.textContent = `Your Score: ${score}/5`
-    }
+    questionText.textContent = `Your Score: ${score}/5`
+    answerButtons.style.display = "none"
 }
 function prevButton(){
     currentQuestionIndex--;
+    showQuestion()
 }
 // startBtn.addEventListener('click',startQuiz)
 nextBtn.addEventListener('click',nextButton)
 prevBtn.addEventListener('click',prevButton)
+completeBtn.addEventListener('click',completeButton)
+
