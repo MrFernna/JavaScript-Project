@@ -52,6 +52,7 @@ const returnBtn = document.querySelector('.return-button')
 
 function startQuiz(){
     score = 0;
+    currentQuestionIndex = 0;
     startBtn.style.display = "none"
     nextBtn.style.display = "block"
     prevBtn.style.display = "block"
@@ -94,7 +95,6 @@ function selectAnswer(e){
         button.disabled = true;
         if(button.dataset.correct){
             button.style.backgroundColor = '#47cc4eff'
-            progress
         }
     })
 }
@@ -102,16 +102,17 @@ startQuiz()
 
 function nextButton(){
     if(currentQuestionIndex == 4){
-        nextBtn.disabled = true
+        nextBtn.style.display = 'none'
         completeBtn.style.display = 'block'
     }else{
+        nextBtn.style.display = 'block'
+        nextBtn.disabled = false
         currentQuestionIndex++
     showQuestion()
     }
 }
 function returnButton(){
     startQuiz()
-    resetState()
     showQuestion()
 }
 function completeButton(){
@@ -127,7 +128,11 @@ function prevButton(){
     currentQuestionIndex--;
     showQuestion()
 }
-// startBtn.addEventListener('click',startQuiz)
+startBtn.addEventListener('click',()=>{
+    startQuiz()
+    currentQuestionIndex = 0;
+})
+returnBtn.addEventListener('click',returnButton)
 nextBtn.addEventListener('click',nextButton)
 prevBtn.addEventListener('click',prevButton)
 completeBtn.addEventListener('click',completeButton)
