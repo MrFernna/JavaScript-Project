@@ -64,7 +64,7 @@ function startQuiz(){
 function showQuestion(){
     resetState()
     const currentQuestion = qna[currentQuestionIndex]
-    questionText.textContent = currentQuestion.question 
+    questionText.textContent = currentQuestion.question
     currentQuestion.answers.forEach(answer =>{
         const button = document.createElement('button')
         page.textContent = `Progress: ${currentQuestionIndex}/4`;
@@ -98,27 +98,26 @@ function selectAnswer(e){
         }
     })
 }
-startQuiz()
 
 function nextButton(){
     if(currentQuestionIndex == 4){
-        nextBtn.style.display = 'none'
         completeBtn.style.display = 'block'
     }else{
         nextBtn.style.display = 'block'
-        nextBtn.disabled = false
         currentQuestionIndex++
     showQuestion()
     }
 }
 function returnButton(){
     startQuiz()
-    showQuestion()
+    selectAnswer()
 }
 function completeButton(){
     showResult()
     returnBtn.style.display = 'block'
     completeBtn.style.display = 'none'
+    prevBtn.style.display = 'none'
+    nextBtn.style.display = 'none'
 }
 function showResult(){
     questionText.textContent = `Your Score: ${score}/5`
@@ -130,7 +129,6 @@ function prevButton(){
 }
 startBtn.addEventListener('click',()=>{
     startQuiz()
-    currentQuestionIndex = 0;
 })
 returnBtn.addEventListener('click',returnButton)
 nextBtn.addEventListener('click',nextButton)
