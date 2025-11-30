@@ -108,10 +108,6 @@ function nextButton(){
     showQuestion()
     }
 }
-function returnButton(){
-    startQuiz()
-    selectAnswer()
-}
 function completeButton(){
     showResult()
     returnBtn.style.display = 'block'
@@ -130,7 +126,7 @@ function prevButton(){
 startBtn.addEventListener('click',()=>{
     startQuiz()
 })
-returnBtn.addEventListener('click',returnButton)
+returnBtn.addEventListener('click',startQuiz)
 nextBtn.addEventListener('click',nextButton)
 prevBtn.addEventListener('click',prevButton)
 completeBtn.addEventListener('click',completeButton)
