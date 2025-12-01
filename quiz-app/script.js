@@ -54,8 +54,8 @@ function startQuiz(){
     score = 0;
     currentQuestionIndex = 0;
     startBtn.style.display = "none"
-    nextBtn.style.display = "block"
-    prevBtn.style.display = "block"
+    nextBtn.style.display = "none"
+    prevBtn.style.display = "none"
     page.style.display = "block"
     returnBtn.style.display = 'none'
     showQuestion()
@@ -70,6 +70,7 @@ function showQuestion(){
         page.textContent = `Progress: ${currentQuestionIndex}/4`;
         button.textContent = answer.text
         button.classList.add('answer-button')
+        answerButtons.style.display = "block"
         if(answer.correct){
             button.dataset.correct = answer.correct
         }
@@ -88,8 +89,10 @@ function selectAnswer(e){
     if(correct){
         selectedButton.style.backgroundColor = "#47cc4eff"
         score++
+        nextBtn.style.display = 'block'
     }else{
         selectedButton.style.backgroundColor = "#f00000"
+        nextBtn.style.display = 'block'
     }
     Array.from(answerButtons.children).forEach(button =>{
         button.disabled = true;
@@ -102,11 +105,21 @@ function selectAnswer(e){
 function nextButton(){
     if(currentQuestionIndex == 4){
         completeBtn.style.display = 'block'
+        nextBtn.style.display = 'none'
+        selectAnswer()
     }else{
-        nextBtn.style.display = 'block'
+        Array.from(answerButtons.children).forEach(button =>{
+        button.disabled = true;
+        if(button.dataset.correct){
+            button.style.backgroundColor = '#47cc4eff'
+        }else{
+            button.style.backgroundColor = '#f00000'
+        }
+    })
+        nextBtn.style.display = 'none'
         currentQuestionIndex++
-    showQuestion()
     }
+    showQuestion()
 }
 function completeButton(){
     showResult()
@@ -131,10 +144,13 @@ function prevButton(){
         }
     })
 }
+function returnButton(){
+    startQuiz()
+}
 startBtn.addEventListener('click',()=>{
     startQuiz()
 })
-returnBtn.addEventListener('click',startQuiz)
+returnBtn.addEventListener('click',returnButton)
 nextBtn.addEventListener('click',nextButton)
 prevBtn.addEventListener('click',prevButton)
 completeBtn.addEventListener('click',completeButton)
