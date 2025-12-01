@@ -122,6 +122,14 @@ function showResult(){
 function prevButton(){
     currentQuestionIndex--;
     showQuestion()
+    Array.from(answerButtons.children).forEach(button =>{
+        button.disabled = true;
+        if(button.dataset.correct){
+            button.style.backgroundColor = '#47cc4eff'
+        }else{
+            button.style.backgroundColor = '#f00000'
+        }
+    })
 }
 startBtn.addEventListener('click',()=>{
     startQuiz()
