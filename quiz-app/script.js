@@ -50,6 +50,7 @@ const page = document.getElementById('progress')
 const answerButtons = document.querySelector('.answer-container')
 const returnBtn = document.querySelector('.return-button')
 
+//start default value
 function startQuiz(){
     score = 0;
     currentQuestionIndex = 0;
@@ -60,14 +61,14 @@ function startQuiz(){
     returnBtn.style.display = 'none'
     showQuestion()
 }
-
+//function to show the question and craeting button element with appendChild
 function showQuestion(){
     resetState()
     const currentQuestion = qna[currentQuestionIndex]
     questionText.textContent = currentQuestion.question
     currentQuestion.answers.forEach(answer =>{
         const button = document.createElement('button')
-        page.textContent = `Progress: ${currentQuestionIndex}/4`;
+        page.textContent = `Progress: ${currentQuestionIndex + 1}/5`;
         button.textContent = answer.text
         button.classList.add('answer-button')
         answerButtons.style.display = "block"
@@ -78,11 +79,13 @@ function showQuestion(){
         button.addEventListener('click',selectAnswer)
     })
 }
+//function to remove the past answer
 function resetState(){
     while(answerButtons.firstChild){
         answerButtons.removeChild(answerButtons.firstChild)
     }
 }
+// function to confirm true or false the selected answer
 function selectAnswer(e){
     const selectedButton = e.target
     const correct = selectedButton.dataset.correct === 'true'
@@ -98,11 +101,14 @@ function selectAnswer(e){
         button.disabled = true;
         if(button.dataset.correct){
             button.style.backgroundColor = '#47cc4eff'
+        }else{
+            button.style.backgroundColor = '#f00000'
         }
     })
 }
-
+// function to next answer 
 function nextButton(){
+    //condition if index == 4
     if(currentQuestionIndex == 4){
         completeBtn.style.display = 'block'
         nextBtn.style.display = 'none'
