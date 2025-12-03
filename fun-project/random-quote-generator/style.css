@@ -1,0 +1,56 @@
+body{
+    font-family: 'arial',sans-serif;
+    background-color: #f0f0f0;
+    margin:0;
+    padding:0;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+}
+.quote-container{
+    text-align:center;
+    background-color:#ffffff;
+    padding:40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px 0 rgba(0,0,0,0.1);
+    width:100%;
+    max-width:600px;
+}
+h1{
+    font-size:2em;
+    margin-bottom:20px;
+    color:#333333;
+}
+.quote-box{
+    background-color:rgb(138, 214, 189);
+    padding:20px;
+    margin:20px 0;
+    border-radius:8px;
+    color: rgb(84, 77, 77);
+    box-shadow: 0 4px 10px 0 rgba(0,0,0,0.1)
+}
+/* Styling for the quote text */
+#quote{
+    font-size:1.5em;
+    margin-bottom:20px;
+    color:rgb(202, 250, 234);
+}
+/* Styling for the Author text */
+#author{
+    color:rgb(154, 250, 218);
+    font-style:italic;
+    font-size:1.2em
+}
+button{
+    color:white;
+    background-color: rgb(44, 115, 91);
+    border:none;
+    padding:12px 24px;
+    border-radius:8px;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+}
+button:hover{
+    background-color:rgb(106, 164, 145)
+}
