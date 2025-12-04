@@ -28,5 +28,10 @@ align-items: center;
 padding-left: 18px;
 }
 .audio-list{
-    border-right:solid rgb(216, 216, 116)
+    border-right:solid rgb(216, 216, 116);
+}
+.audio-list input{
+    margin-bottom: 12px;
+    background-color: #dae07f;
+    border:none;
 }
