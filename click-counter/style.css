@@ -1,0 +1,37 @@
+body{
+    background-color: #f0f0f0;
+    font-family: 'arial', sans-serif;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin:0;
+    padding:0;
+}
+.click-container{
+    background-color: #ffffff ;
+    padding:100px;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius:8px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+.click-container p{
+    margin-bottom:20px;
+    font-size:2em;
+}
+#clickButton{
+    padding:10px 20px;
+    font-size:1em;
+    border:none;
+    border-radius:5px;
+    background-color:#4CAF50;
+    color:white;
+    cursor:pointer;
+    transition: background-color 0.3s ease;
+}
+#clickButton:hover{
+    background-color:#45a049;
+}
