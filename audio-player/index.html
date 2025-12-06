@@ -9,24 +9,31 @@
 <body>
     <div class="audio-container">
         <div class="audio-list">
-            <label for="inputFile">
-                <input type="file" accept="audio/*" id="inputFile">
+            <label for="inputFile" class="label-input">
+                Import Audio
             </label>
-            <div class="progress-container">test
-                    <div class="progress-bar"></div>
-            </div>
-            <p>No Track Selected</p>
+            <input type="file" accept="audio/*" id="inputFile" style="display:none">
+            <ul id="audio-queue">
+
+            </ul>
+            <audio src="" id="audio"></audio>
         </div>
         <div class="audio-controls">
-            <button id="play-pause" class="play-button">
-                <svg id="play-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+            <div class="audio-run">
+                <button id="play-pause" class="play-button">
+                <svg id="play-icon" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24">
                     <path fill="#00796b" d="M8 5v14l11-7z"/>
                 </svg>
 
-                <svg id="pause-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="display:none">
+                <svg id="pause-icon" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" style="display:none">
                     <path fill="#00796b" d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>    
                 </svg>
             </button>
+            <div class="progress-container">
+                    <div id="progressBar"></div>
+            </div>
+            </div>
+            <p id="selectedAudio">No Track Selected</p>
         </div>
     </div>
 </body>
