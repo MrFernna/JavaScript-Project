@@ -21,3 +21,10 @@ function createPlayList(){
         audio.src = track.src
     })
 }
+console.log('mulai')
+
+setTimeout(()=>{
+    console.log("data berhasil diambil")
+}, 5000)
+
+console.log('mengambil data')
