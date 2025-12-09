@@ -89,9 +89,13 @@ body{
     cursor: pointer;
     border-bottom: solid 4px hsl(64, 90%, 58%);
     font-size: 1.2em;
+    transition: 0.2s ease;
 }
 #selectedAudio{
     margin-top: 12px;
     font-weight: bold;
     color:hsl(69, 45%, 26%)
+}
+.label-input:hover{
+    background-color: hsl(64, 90%, 76%);
 }

@@ -16,15 +16,13 @@ function createPlayList(){
         const li = document.createElement('li')
         li.textContent = track.title
         li.dataset.src = track.src
-    })
-    li.addEventListener('click',()=>{
+
+        li.addEventListener('click',()=>{
         audio.src = track.src
+        audio.play()
+        updatePlayPauseIcon()
+
+        pl
+    })
     })
 }
-console.log('mulai')
-
-setTimeout(()=>{
-    console.log("data berhasil diambil")
-}, 5000)
-
-console.log('mengambil data')
