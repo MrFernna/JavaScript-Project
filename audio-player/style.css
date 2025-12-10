@@ -100,3 +100,14 @@ body{
 .label-input:hover{
     background-color: hsl(64, 90%, 76%);
 }
+.file-list{
+    background-color:#dae07f;
+    margin-bottom:10px;
+    border-radius:8px;
+    transition: 0.3s ease;
+    cursor:pointer;
+    padding:8px;
+}
+.file-list:hover{
+    background-color:#ced659;
+}

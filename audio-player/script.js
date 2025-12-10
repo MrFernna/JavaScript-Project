@@ -1,32 +1,37 @@
-//untuk mengambil data playlist dari local storage
 let playlist = JSON.parse(localStorage.getItem('playlist')) || []
+const playlistSection = document.getElementById('playlist')
 const playIcon = document.getElementById('play-icon')
 const pauseIcon = document.getElementById('pause-icon')
-const playBtn = document.getElementById('play-pause')
+const playPauseBtn = document.getElementById('play-pause')
 const progressBar = document.getElementById('progress-bar')
-const trackName = document.getElementById('selectedAudio')
+const trackSelected = document.getElementById("selectedAudio")
 const audio = document.getElementById('audio')
-const inputFile = document.getElementById('inputFile')
-const playlistSection = document.getElementById("playlist")
+const audioFile = document.getElementById('inputFile')
 
-function createPlaylist(){
+function createAudioList(){
     playlistSection.innerHTML = ''
-    playlist.forEach(track =>{
+    playlist.forEach((track, index) => {
         const li = document.createElement('li')
         li.textContent = track.title
         li.dataset.src = track.src
         playlistSection.appendChild(li)
+        li.classList.add('file-list')
 
         li.addEventListener('click',()=>{
             audio.src = track.src
             audio.play()
             updatePlayPauseIcon()
-            document.querySelectorAll('#playlist li').forEach(item => item.classList.remove('active'))
 
+            document.querySelectorAll('#playlist li').forEach(item => item.classList.remove('active'))
             li.classList.add('active')
-            trackName.textContent = track.title
+            trackSelected.textContent = track.title
         })
     })
+}
+
+
+function saveAudio(){
+    localStorage.setItem('playlist',JSON.stringify(playlist))
 }
 
 function updatePlayPauseIcon(){
@@ -39,15 +44,9 @@ function updatePlayPauseIcon(){
     }
 }
 
-//menyimpan audio ke dalam localStorage
-function savePlaylist(){
-    localStorage.setItem('playlist',JSON.stringify(playlist))
-}
+createAudioList()
 
-createPlaylist()
-
-//event listener untuk upload file audio
-inputFile.addEventListener('change',(event)=>{
+audioFile.addEventListener('change',(event)=>{
     const files = Array.from(event.target.files)
     files.forEach(file =>{
         const reader = new FileReader()
@@ -57,13 +56,14 @@ inputFile.addEventListener('change',(event)=>{
                 src: e.target.result
             }
             playlist.push(track)
-            createPlaylist()
-            savePlaylist()
+            createAudioList()
+            saveAudio()
         }
         reader.readAsDataURL(file)
     })
+
 })
-playBtn.addEventListener('click',()=>{
+playPauseBtn.addEventListener('click',()=>{
     if(audio.paused){
         audio.play()
     }else{
@@ -73,5 +73,5 @@ playBtn.addEventListener('click',()=>{
 })
 audio.addEventListener('timeupdate',()=>{
     const progress = (audio.currentTime / audio.duration) * 100
-    progressBar.style.width = progress + '%'
+    progressBar.style.width = progress + "%"
 })
