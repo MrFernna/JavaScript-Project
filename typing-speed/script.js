@@ -13,10 +13,10 @@ function updateDisplay(){
     userType.value = ''
     userType.focus()
     timeInterval = setInterval(startCounting,1000)
-    textToTypeElement = textToType.map(word =>`<span>${word}</span>` ).join(' ')
+    textToTypeElement = textToType.map(word =>`${word}` ).join(' ')
 }
 function startCounting(){
     let currentTime = new Date()
 }
-console.log(startTime)
+console.log(textToType)
 userType.addEventListener('click',updateDisplay)
