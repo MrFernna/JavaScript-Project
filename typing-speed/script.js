@@ -8,15 +8,15 @@ const startBtn = document.getElementById('start-button')
 let startTime
 let timeInterval
 
-function updateDisplay(){
-    startTime = new Date(2007,0,13)
+function startButton(){
+    startTime = new Date()
     userType.value = ''
     userType.focus()
-    timeInterval = setInterval(startCounting,1000)
-    textToTypeElement = textToType.map(word =>`${word}` ).join(' ')
+    timeInterval = setInterval(updateDisplay,1000)
+    textToTypeElement = textToType.map(word =>`<span>${word}</span>` ).join(' ')
 }
-function startCounting(){
+function updateDisplay(){
     let currentTime = new Date()
 }
 console.log(textToType)
-userType.addEventListener('click',updateDisplay)
+startBtn.addEventListener('click',updateDisplay)
