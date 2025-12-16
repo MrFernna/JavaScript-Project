@@ -20,3 +20,4 @@ function updateDisplay(){
 }
 console.log(textToType)
 startBtn.addEventListener('click',updateDisplay)
+//next-tomorrow
