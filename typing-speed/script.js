@@ -5,8 +5,8 @@ const timeDisplay = document.getElementById('time')
 const wpmDisplay = document.getElementById('word-per-minute')
 const startBtn = document.getElementById('start-button')
 
-let startTime
-let timeInterval
+let startTime;
+let timeInterval;
 
 function startButton(){
     startTime = new Date()
@@ -16,8 +16,8 @@ function startButton(){
     textToTypeElement = textToType.map(word =>`<span>${word}</span>` ).join(' ')
 }
 function updateDisplay(){
-    let currentTime = new Date()
+    
 }
+console.log(name1)
 console.log(textToType)
 startBtn.addEventListener('click',updateDisplay)
-//next-tomorrow
