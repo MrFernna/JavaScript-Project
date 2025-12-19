@@ -28,3 +28,4 @@ console.log(name1)
 console.log(textToType)
 startBtn.addEventListener('click',updateDisplay)
 //next-tomorrow again
+//skip-coding-hehe
