@@ -1,12 +1,8 @@
-document.getElementById('colorInput').addEventListener('input',(event)=>{
-    
-    let selectedColor = event.target.value
-// Get color code from input color
-    document.getElementById('colorCode')
-    colorCode.textContent = selectedColor
-// Get display color from input color
-    document.getElementById('colorDisplay').style.backgroundColor = selectedColor
-// Get font color from input color Yesssirrr!!!
-    document.querySelector('.color-font').style.color = selectedColor
+const selectedColor = document.getElementById('colorInput')
+const colorDisplay = document.getElementById('colorDisplay')
+const colorCode = document.getElementById('colorCode')
 
+selectedColor.addEventListener('input',(e)=>{
+    colorDisplay.style.backgroundColor = e.target.value;
+    colorCode.textContent = e.target.value
 })
