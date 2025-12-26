@@ -1,0 +1,19 @@
+body{
+    height:100vh;
+    margin:0;
+    padding:0;
+    overflow:none;
+}
+#click{
+    height:100%;
+
+}
+#clickBtn{
+    border:none;
+    padding:20px;
+    background-color:#4feb4f;
+    border-radius:12px;
+    font-size:1em;
+    color:white;
+    cursor:pointer;
+}
