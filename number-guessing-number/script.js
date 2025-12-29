@@ -33,7 +33,7 @@ function reset(){
     guessButton.disabled = false
     restartButton.style.display = 'none'
     inputNumber.value = ''
-    result = `Guess The Number! Good Luck lol`
+    result.textContent = `Guess The Number! Good Luck lol`
     result.style.color = '#ffffff'
 }
 restartButton.addEventListener('click',reset)

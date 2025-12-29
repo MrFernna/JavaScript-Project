@@ -50,6 +50,7 @@ button{
     border-radius:8px;
     font-size: 1em;
     transition: background-color 0.3s ease;
+    cursor:pointer;
 }
 button:hover{
     background-color:rgb(106, 164, 145)
