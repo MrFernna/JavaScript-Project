@@ -37,6 +37,11 @@ function reset(){
     result.style.color = '#ffffff'
 }
 restartButton.addEventListener('click',reset)
+inputNumber.addEventListener('keydown',(event)=>{
+    if(event.key === 'Enter'){
+        checkGuess()
+    }
+})
 guessButton.addEventListener('click',()=>{
     checkGuess()
 })
