@@ -4,20 +4,26 @@ const ul = document.getElementById("ul")
 let number;
 
 function numberLoop(){
-    number = inputNumber.value
+    number = Number(inputNumber.value)
+
+    ul.innerHTML = ''
+
     while(number <= 10){
+
+        addingLi(number)
+
         console.log(number)
         number++
     }
-    returnLoop()
 }
-function returnLoop(){
+function addingLi(e){
     const li = document.createElement('li')
-    li.forEach(li2 => {
-        li2.textContent = `iterasi ke- ${number}`
-    })
-    ul.appencChild(li)
+
+    li.textContent = `Iterasi Ke-${e}`
+
+    ul.appendChild(li)
 }
+enterBtn.addEventListener('click',numberLoop)
 inputNumber.addEventListener('keydown',(event)=>{
     if(event.key === "Enter"){
         numberLoop()

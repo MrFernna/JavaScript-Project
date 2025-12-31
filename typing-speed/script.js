@@ -18,19 +18,3 @@ function startButton(){
 function updateDisplay(){
 
 }
-let x = true;
-let y = true;
-
-console.log(x && y)
-console.log(x || y)
-console.log(!x)
-console.log(name1)
-console.log(textToType)
-startBtn.addEventListener('click',updateDisplay)
-//next-tomorrow again
-//skip-coding-hehe
-//skip-coding-hehe
-//ill-be-back-tomorrow
-//just-present
-//just-present
-//just-present
