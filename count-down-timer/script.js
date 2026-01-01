@@ -51,7 +51,7 @@ function startTimer(){
         //stop the timer when times runs out
         if(totalTimeInSeconds < 0){
             clearInterval(countdownInterval)
-            alert("Time's Up")
+            alert("Happy New Year!")
         }
         //
     }, 1000)
