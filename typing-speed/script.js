@@ -18,11 +18,3 @@ function startButton(){
 function updateDisplay(){
 
 }
-//present
-//present
-//present
-//present
-//present
-//present
-//present
-//present dlu
