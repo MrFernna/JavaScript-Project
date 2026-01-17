@@ -12,7 +12,6 @@ function updateCounter(){
     }else{
         colorContainer.style.backgroundColor = "#e61a1aff"
         clickCounter.textContent = `${count}x`
-
     }
 }
 clickBtn.addEventListener('click', updateCounter)

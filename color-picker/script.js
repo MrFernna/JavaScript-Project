@@ -4,5 +4,6 @@ const colorCode = document.getElementById('colorCode')
 
 selectedColor.addEventListener('input',(e)=>{
     colorDisplay.style.backgroundColor = e.target.value;
-    colorCode.textContent = e.target.value
+    colorCode.textContent = e.target.value;
+    colorCode.style.color = e.target.value;
 })
