@@ -75,3 +75,4 @@ audio.addEventListener('timeupdate',()=>{
     const progress = (audio.currentTime / audio.duration) * 100
     progressBar.style.width = progress + "%"
 })
+//present
