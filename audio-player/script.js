@@ -76,3 +76,4 @@ audio.addEventListener('timeupdate',()=>{
     progressBar.style.width = progress + "%"
 })
 //present
+//present
