@@ -8,7 +8,7 @@ function numberLoop(){
 
     ul.innerHTML = ''
 
-    while(number <= 10){
+    while(number <= 20){
 
         addingLi(number)
 
@@ -29,3 +29,4 @@ inputNumber.addEventListener('keydown',(event)=>{
         numberLoop()
     }
 })
+//exercise
