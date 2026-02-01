@@ -31,3 +31,4 @@ inputNumber.addEventListener('keydown',(event)=>{
 })
 //exercise
 //alamak
+//presemt
