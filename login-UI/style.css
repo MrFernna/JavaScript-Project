@@ -1,0 +1,38 @@
+body{
+    font-family: 'arial',sans-serif;
+    margin:0;
+    padding:0;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    background-color:#f0f0f0 ;
+    height:100vh;
+}
+.login-container{
+    width:60vh;
+    height:80vh;
+    border:1px black solid;
+    border-radius:8px;
+    display:flex;
+    justify-content: start;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgb(253, 253, 255);
+}
+.input-container{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height:80vh;
+    gap:16px;
+
+}
+.input-username{
+    width:36vh;
+    height:3vh;
+}
+.input-password{
+    width:36vh;
+    height:3vh;
+}
