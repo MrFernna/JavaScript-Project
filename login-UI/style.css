@@ -24,7 +24,7 @@ body{
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    height:80vh;
+    height:45vh;
     gap:16px;
 
 }
@@ -35,4 +35,20 @@ body{
 .input-password{
     width:36vh;
     height:3vh;
+}
+.button-container{
+    display:flex;
+
+}
+.button{
+    background-color:#f0f0f0;
+    border-radius:8px;
+    border:none;
+    font-size:20px;
+    padding:12px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+.button:hover{
+    background-color: rgb(203, 203, 203);
 }
