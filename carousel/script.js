@@ -23,7 +23,7 @@ function prevSlide(){
     currentIndex = (currentIndex + 1 - totalImages) % totalImages
     carouselUpdate()
 }
-// for changing the display to right
+// for changing the display to rightq
 function nextSlide(){
     currentIndex = (currentIndex + 1) % totalImages
     carouselUpdate()

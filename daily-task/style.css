@@ -16,7 +16,7 @@ body{
 }
 .table-task{
     display:grid;
-    background-color: red;
+    background-color: rgb(69, 30, 30);
     grid-template-columns:200px 200px 200px;
     grid-template-rows:200px 200px;
     gap:1em;
