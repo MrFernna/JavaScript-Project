@@ -1,9 +1,9 @@
-const selectedColor = document.getElementById('colorInput')
-const colorDisplay = document.getElementById('colorDisplay')
-const colorCode = document.getElementById('colorCode')
+const inputColor = document.getElementById("colorInput")
+const colorCode = document.getElementById("colorCode")
+const outputColor = document.getElementById("colorDisplay")
 
-selectedColor.addEventListener('input',(e)=>{
-    colorDisplay.style.backgroundColor = e.target.value;
-    colorCode.textContent = e.target.value;
-    colorCode.style.color = e.target.value;
+inputColor.addEventListener('input',(e)=>{
+    colorCode.style.color = e.target.value
+    outputColor.style.background = e.target.value
+    colorCode.textContent = e.target.value
 })
