@@ -1,21 +1,28 @@
+//Mengambil ID HTML
 const inputNumber = document.getElementById('inputNumber')
 const enterBtn = document.getElementById('enterBtn')
 const ul = document.getElementById("ul")
+
+// Membuat Variabel Nilai 
 let number;
 
-function numberLoop(){
-    number = Number(inputNumber.value)
 
-    ul.innerHTML = ''
+//Membuat Kondisi Nilai
+number = Number(inputNumber.value)
 
-    while(number <= 20){
+ul.innerHTML = ''
 
-        addingLi(number)
-
-        console.log(number)
-        number++
-    }
+while(number <= 20){
+    
+    addingLi(number)
+    
+    console.log(number)
+    number++
 }
+function numberLoop(){
+}
+
+//Menambahkan Jumlah Perulanngan
 function addingLi(e){
     const li = document.createElement('li')
 
@@ -23,12 +30,11 @@ function addingLi(e){
 
     ul.appendChild(li)
 }
+
+//Menekan Tombol Enter untuk Menjalankan Perulangan
 enterBtn.addEventListener('click',numberLoop)
 inputNumber.addEventListener('keydown',(event)=>{
     if(event.key === "Enter"){
         numberLoop()
     }
 })
-//exercise
-//alamak
-//presemt
